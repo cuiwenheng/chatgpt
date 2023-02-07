@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  node:
+    build: ./.
+    volumes:
+      - ./:/chatgpt/
+    ports:
+      - "80:30003"
+    restart: always
