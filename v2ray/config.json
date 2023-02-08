@@ -1,29 +1,56 @@
 {
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
       "port": 50001,
-      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
+        "udp": false,
         "clients": [
           {
             "id": "07178608-7604-4a2e-b41a-09041fffd65e",
-            "alterId": 64
+            "alterId": 64,
+            "email": "t@t.tt"
           }
-        ]
+        ],
+        "allowTransparent": false
       },
       "streamSettings": {
         "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "serverName": "www.cui.lol",
+          "alpn": [
+            "http/1.1"
+          ],
+          "fingerprint": "chrome"
+        },
         "wsSettings": {
-          "path": "/ray/"
+          "path": "/ray/",
+          "headers": {
+            "Host": "www.cui.lol"
+          }
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
       "settings": {}
     }
-  ]
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": []
+  }
 }
