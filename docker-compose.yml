@@ -4,6 +4,7 @@ services:
   nginx:
     image: nginx:alpine
     container_name: my-nginx
+    hostname: nginx
     ports:
       - "80:80"
       - "443:443"
@@ -15,9 +16,15 @@ services:
     networks:
       - net-v2ray
       - net-node
+    environment:
+        - NODESERVER=node
+        - NODEPORT=30003
+        - V2RAYSERVER=v2ray
+        - V2RAYPORT=50001
   v2ray:
       image: v2ray/official
       container_name: my-v2ray
+      hostname: v2ray
       ports:
         - "50001:50001"
       restart: always
@@ -30,6 +37,7 @@ services:
   node:
     build: .
     container_name: my-node
+    hostname: node
     volumes:
       - ./:/chatgpt/
     ports:
