@@ -25,6 +25,8 @@ services:
       image: v2ray/official
       container_name: my-v2ray
       hostname: v2ray
+      expose:
+        - "50001"
       ports:
         - "50001:50001"
       restart: always
@@ -38,6 +40,8 @@ services:
     build: .
     container_name: my-node
     hostname: node
+    expose:
+      - "30003"
     volumes:
       - ./:/chatgpt/
     ports:
