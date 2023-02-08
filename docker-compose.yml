@@ -28,7 +28,7 @@ services:
         - net-v2ray
         - net-node
   node:
-    build: ./node/
+    build: .
     container_name: my-node
     volumes:
       - ./:/chatgpt/
