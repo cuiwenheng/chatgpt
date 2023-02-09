@@ -20,10 +20,6 @@
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false
-        },
         "wsSettings": {
           "path": "/ray/",
           "headers": {
